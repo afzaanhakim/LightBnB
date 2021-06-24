@@ -19,8 +19,7 @@ const pool = new Pool({
 const getUserWithEmail = function (email) {
   const queryString = `SELECT * FROM users where email = $1;`;
   let values = [email];
-  return pool.query(queryString, values)
-  .then((res) => res.rows[0] || null);
+  return pool.query(queryString, values).then((res) => res.rows[0] || null);
 };
 exports.getUserWithEmail = getUserWithEmail;
 
